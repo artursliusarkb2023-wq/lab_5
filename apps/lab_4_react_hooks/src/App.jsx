@@ -12,7 +12,6 @@ import Footer from "./components/Footer";
 export default function App() {
   const [theme, setTheme] = useState("light");
 
-  
   useEffect(() => {
     const saved = localStorage.getItem("theme");
 
@@ -41,34 +40,29 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-[#0f0f0f] dark:text-white transition">
-
-      <div className="max-w-5xl mx-auto px-8 py-10">
+    <div className="min-h-screen bg-white text-black dark:bg-[#0f0f0f] dark:text-white transition relative overflow-hidden">
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <div className="absolute left-[-120px] bottom-[-120px] w-[320px] h-[320px] border border-black/20 dark:border-white/20 rotate-45"></div>
+        <div className="absolute right-[-120px] top-[-120px] w-[320px] h-[320px] border border-black/20 dark:border-white/20 rounded-full"></div>
+      </div>
+      <div className="relative z-10 max-w-5xl mx-auto px-8 py-10">
         <Header toggleTheme={toggleTheme} />
-
         <div className="mt-6 border-t border-black dark:border-white/20 pt-6 grid grid-cols-2 gap-12">
-
           <div className="space-y-10">
             <Experience />
           </div>
-
           <div className="space-y-10">
             <Education />
             <About />
             <Contacts />
           </div>
-
         </div>
-
         <div className="mt-10">
           <Reviews />
         </div>
-
         <ContactForm />
-
         <Footer />
       </div>
-
     </div>
   );
 }
