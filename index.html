@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя сторінка</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+    <div class="header-content">
+        <h1>Слюсар Артур</h1>
+        <button id="theme-toggle">Змінити тему</button>
+    </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Про мене</h2>
+            <p>
+                Я студент третього курсу спеціальності "Кібербезпека".
+                Цікавлюся програмуванням і інформаційною безпекою.
+            </p>
+        </section>
+
+        <section>
+            <h2>Освіта</h2>
+            <ul>
+                <li>Навчаюсь на спеціальності "Кібербезпека"</li>
+                <li>3 курс</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Навички</h2>
+            <ul>
+                <li>C++</li>
+                <li>HTML</li>
+                <li>Основи кібербезпеки</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Контакти</h2>
+            <p>Email: arturslusar@gmail.com</p>
+            <p>
+                Мій GitHub:
+                <a href="https://github.com/artursliusarkb2023-wq">https://github.com/artursliusarkb2023-wq</a>
+            </p>
+        </section>
+        <div class="update-bar"></div>
+        <section>
+            <h2>Відгуки попередніх роботодавців</h2>
+            <div id="reviews"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>2026</p>        
+        <p id="system-info"></p>
+    </footer>
+
+    <div id="contact-modal" class="modal hidden">
+    <div class="modal-content">
+        <button id="close-modal">X</button>
+
+        <h2>Зворотний зв'язок</h2>
+
+        <form action="https://formspree.io/f/xkopdpjo" method="POST">
+            <input type="text" name="name" placeholder="Ім'я" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Телефон" required>
+            <textarea name="message" placeholder="Ваше повідомлення" required></textarea>
+            <button type="submit">Відправити</button>
+        </form>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
