@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import Header from "./components/Header";
 import About from "./components/About";
 import Education from "./components/Education";
@@ -14,10 +13,8 @@ export default function App() {
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-
-    if (saved) {
-      setTheme(saved);
-    } else {
+    if (saved) setTheme(saved);
+    else {
       const hour = new Date().getHours();
       setTheme(hour >= 7 && hour < 21 ? "light" : "dark");
     }
@@ -25,13 +22,8 @@ export default function App() {
 
   useEffect(() => {
     const root = document.documentElement;
-
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-
+    if (theme === "dark") root.classList.add("dark");
+    else root.classList.remove("dark");
     localStorage.setItem("theme", theme);
   }, [theme]);
 
@@ -40,11 +32,18 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-[#0f0f0f] dark:text-white transition relative overflow-hidden">
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute left-[-120px] bottom-[-120px] w-[320px] h-[320px] border border-black/20 dark:border-white/20 rotate-45"></div>
-        <div className="absolute right-[-120px] top-[-120px] w-[320px] h-[320px] border border-black/20 dark:border-white/20 rounded-full"></div>
+    <div className="min-h-screen bg-white text-black dark:bg-[#0f0f0f] dark:text-white relative overflow-hidden transition">
+
+      <div className="absolute top-[-250px] right-[-250px] w-[800px] h-[800px] opacity-30 pointer-events-none">
+        <div className="w-full h-full border border-black dark:border-white rounded-full" />
+        <div className="absolute top-20 left-20 w-[550px] h-[550px] border border-black dark:border-white rounded-full" />
       </div>
+
+      <div className="absolute bottom-[-250px] left-[-250px] w-[800px] h-[800px] opacity-30 pointer-events-none">
+        <div className="w-full h-full border border-black dark:border-white rotate-45" />
+        <div className="absolute top-20 left-20 w-[550px] h-[550px] border border-black dark:border-white rotate-45" />
+      </div>
+
       <div className="relative z-10 max-w-5xl mx-auto px-8 py-10">
         <Header toggleTheme={toggleTheme} />
         <div className="mt-6 border-t border-black dark:border-white/20 pt-6 grid grid-cols-2 gap-12">
